@@ -1,0 +1,118 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h2>Mark Attendance</h2>
+
+<form method="POST">
+
+    <div class="row mt-4">
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Student
+            </label>
+
+            <select
+                name="student_id"
+                class="form-control"
+                required
+            >
+
+                <option value="">
+                    Select Student
+                </option>
+
+                {% for student in students %}
+
+                <option value="{{ student.student_id }}">
+
+                    {{ student.first_name }}
+                    {{ student.last_name }}
+
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-3">
+
+            <label class="form-label">
+                Attendance Date
+            </label>
+
+            <input
+                type="date"
+                name="attendance_date"
+                class="form-control"
+                required
+            >
+
+        </div>
+
+
+        <div class="col-md-3">
+
+            <label class="form-label">
+                Status
+            </label>
+
+            <select
+                name="attendance_status"
+                class="form-control"
+                required
+            >
+
+                <option value="Present">
+                    Present
+                </option>
+
+                <option value="Absent">
+                    Absent
+                </option>
+
+                <option value="Leave">
+                    Leave
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <div class="row mt-3">
+
+        <div class="col-md-12">
+
+            <label class="form-label">
+                Remarks
+            </label>
+
+            <textarea
+                name="remarks"
+                class="form-control"
+                rows="3"
+            ></textarea>
+
+        </div>
+
+    </div>
+
+
+    <button
+        type="submit"
+        class="btn btn-primary mt-4"
+    >
+        Save Attendance
+    </button>
+
+</form>
+
+{% endblock %}

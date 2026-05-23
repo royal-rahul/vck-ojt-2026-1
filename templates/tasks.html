@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h2>Task List</h2>
+
+<table
+    id="tasks_table"
+    class="table table-bordered table-striped mt-4"
+>
+
+    <thead class="table-dark">
+
+        <tr>
+
+            <th>ID</th>
+            <th>Task Title</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Maximum Marks</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for task in tasks %}
+
+        <tr>
+
+            <td>{{ task.task_id }}</td>
+            <td>{{ task.task_title }}</td>
+            <td>{{ task.task_description }}</td>
+            <td>{{ task.due_date }}</td>
+            <td>{{ task.maximum_marks }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#tasks_table').DataTable();
+
+    });
+
+</script>
+
+{% endblock %}
