@@ -118,3 +118,43 @@ INSERT INTO tasks (task_title, task_description, due_date, maximum_marks) VALUES
 ('SQL Join Queries Practice', 'Complete the worksheet containing complex JOIN queries, subqueries, and grouping commands.', '2026-06-20', 50),
 ('Python Control Flow Exercises', 'Write Python scripts solving various algorithmic problems using loops, conditional statements, and functions.', '2026-05-30', 40),
 ('Database Normalization Report', 'Write a short report explaining 1NF, 2NF, and 3NF database normalization techniques with examples.', '2026-06-10', 80);
+
+-- ==========================================
+-- USERS TABLE
+-- Used for Login Authentication
+-- ==========================================
+
+CREATE TABLE users
+(
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+
+    full_name VARCHAR(100) NOT NULL,
+
+    username VARCHAR(50) NOT NULL UNIQUE,
+
+    password VARCHAR(100) NOT NULL,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
+ENGINE=InnoDB;
+
+
+
+-- ==========================================
+-- DEFAULT ADMIN USER
+-- Username: admin
+-- Password: admin123
+-- ==========================================
+
+INSERT INTO users
+(
+    full_name,
+    username,
+    password
+)
+VALUES
+(
+    'Administrator',
+    'admin',
+    'admin123'
+);
